@@ -98,3 +98,11 @@ $ journalctl -u valheim -f
 
 ## Notes on using mods
 Because BepInEx (the mod framework used by just about every Valheim mod) must both be installed in-tree with Valheim, and to be able to write to various files in the directory tree, we cannot run the modded Valheim server from the Nix store.  To work around this without completely giving up on immutability, we copy the files out of the Nix store to a directory under `/var/lib/valheim` and run from there, but wipe and rebuild this directory on each launch.
+
+## Updating to newer version
+
+1. Find the latest manifestid from <https://steamdb.info/depot/896661/manifests/>
+2. Update the manifestid in `pkgs/valheim-server/default.nix`
+3. Test locally using `nix build .#valheim-server --impure`
+4. The hash will mismatch during the build. Update the hash and test again
+5. Make a PR to the repo
