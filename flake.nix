@@ -4,7 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     steam-fetcher = {
-      url = "github:nix-community/steam-fetcher";
+      # url = "github:nix-community/steam-fetcher";
+      url = "github:kmjayadeep/steam-fetcher/6d89db02176b1c06d97658bb57f4872339a4489e";
+      # url = "git+file:../steam-fetcher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
